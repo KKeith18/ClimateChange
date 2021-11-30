@@ -186,7 +186,7 @@ var Cost = {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": "Estimated Cost of Sea Level Rise by 2100 (Billions of USD)",
     "description": "Estimated Cost of Sea Level Rise by 2100 (Billions of USD)",
-    "width": 700,
+    "width": 550,
     "height": 500,
     "data": {"url": "sealevel_cost.csv"},
     "mark": {"type": "bar", "tooltip": true},
