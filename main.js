@@ -107,7 +107,7 @@ var Emission_Type = {
         "layer": ['oil',"coal",'gas','cement','flaring','other']
     },
     "spec": {
-    "width": 700,
+    "width": 500,
     "height": 500,
     "mark": { "type": "area", "tooltip": true},
     "encoding": {
