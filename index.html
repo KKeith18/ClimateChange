@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Vega-Lite Bar Chart</title>
+    <meta charset="utf-8" />
+
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css">
+<!-- Google Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+
+<!-- CSS Reset -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+
+<!-- Milligram CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css">
+
+<!-- You should properly set the path from the main file. -->
+
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.18.2"></script>
+    <script defer src = "main.js"></script>
+    <style media="screen">
+      /* Add space between Vega-Embed links  */
+      .vega-actions a {
+        margin-right: 5px;
+      }
+
+    </style>
+  </head>
+
+  <body>
+    <div class = "container">
+        <div class = "header-image">
+            <img src = "VisFinalPic1.jpg">
+            <div class = "top-left">
+            <h1 class = "header-1">CLIMATE CHANGE: IS IT REALLY OUR PROBLEM?</h1>
+            </div>
+        </div>
+        <div class = 'select_2'>
+            <form name = 'form'>
+            <ul class="select_3">
+                <hr>
+                <li>
+                    <button class = "butt"  value="Carbon" name = 'amount'> US CO2 Emissions</button>
+                </li>
+                <li>
+                  <button class = "butt" value="Emission_Type" name = 'amount'>CO2 Emissions by Industry</button>
+                  
+                </li>
+                <li>
+                  <button class = "butt" value="Temp" name = 'amount'>Average US Temperature</button>
+                </li>
+                <li>
+                    <button class = "butt" value="State_Temp" name = 'amount'>Temperature Change by State</button>
+                    
+                  </li>
+                <li>
+                  <button class = "butt" value="Cost" name = 'amount'>Projected Cost of Sea Level Rise</button>
+                  
+                </li>
+                
+                <li>
+                  <button class = "butt" value="State" name = 'amount'>State Exploration</button>
+                  
+                </li>
+            </ul>
+            </form>
+        </div>
+        <h2>Hook</h2><!--Not sure why this isn't centered, all the other h2s are-->
+        <p class = "want-centered">drag it on for a bit </P>
+        <p class = "want-centered">talk about the problem </p>
+        <div class = "row"> <!--First set of Vis shows with intro to story.... layout change. redo-->
+            <div class = "column column-30" id = "globalchart"></div>
+            <div class = "column column">
+                <p>First off we need to look at one of the direct causes of climate change, Carbon Emissions. We have long heard that carbon emissions cause our global temperatures to rise. </p>
+                <p>Why is that?</p>
+                <p>Well Carbon Dioxide and other greenhouse gases, gases which absorb and radiate heat. While having a balanced level of greenhouse gases is essential keeping the Earth’s temperature at a point where life is sustainable for us, so far we have incurred more than our Earth can handle. The extra amount of greenhouse gases we have now are causing the heat to stay within the Earth’s atmosphere, in turn raising the global temperature, the phenomenon widely known as global warming.</p>
+            </div>
+        </div>
+        <p class = "want-centered">As we can see from the graph, the level of carbon emissions globally have increased almost exponentially. This is caused by the development of humans and our never ending goals of producing more and being global superpowers. As we can see, the rise of global annual carbon emissions started after the industrial revolution. Around this time, countries around the world had found a new and more efficient method of producing goods, a way that uses more of Earth’s natural resources to speed up their development.</p>
+        <h2>What about the US?</h2>
+        <p class = 'want-centered'>Well let's look more locally, Below we will explore the United States and their Carbon Emissions</p>
+        <div class = "row"><!--not sure why these 2 graphs aren't centered-->
+            <div class = "column " id = "US-Chart"></div>
+            <div class = "column " id = "Co2-Chart"></div>              
+        </div>
+        <p class = "want-centered">As we can see, the United States seems to follow the same pattern as the Global chart. Before the 1860s it seemed relatively level however after that we see an almost exponential rise in carbon emissions. </p>
+        <p class = "want-centered">We can blame the industrial revolution for the large increases in carbon emissions. The industrial revolution started around the late 1700s early 1800s in Britain and spread to other parts of the world that were able to have such technology. The United States being one of the countries that were able to produce the equipment to make use of the new advancements in production. The Industrial revolution leveraged many of the Earth’s natural resources in order to expand our ability to produce. In order to use these natural resources there needed to be a source of energy, the most abundant and widely used one being coal. 
+        </p>
+        <h2>Co2 Emissions By Industry</h2>
+        <p class = "want-centered">have some text introducing it</p>
+        <div class = "row">
+
+            <div class = "column" id = "EmissionsBy-Chart"></div>
+            <div class = " column">
+                <p>Some text explaining the co2 chart</p>
+            </div>
+        </div>
+        <h2>How does change look throughout the US?</h2>
+        <p class = 'want-centered'>Let’s take a look at an interactive map. Below is a map of the United States, please feel free to hover over any state, when you do so you will see the average temperature of that state for the given year. There is a slider on the right side of the chart where you can choose which year to view.</p>
+          <div class='tableauPlaceholder' id='viz1638296414480' style='position: relative'><noscript><a href='#'><img alt='Average Temperature of US States Over Time ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Fi&#47;Final_proj_map&#47;Sheet1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='Final_proj_map&#47;Sheet1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Fi&#47;Final_proj_map&#47;Sheet1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1638296414480');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+        <br>
+        <br>
+        <p class = 'want-centered'>Feel free to select a State and a starting year for the chart below to see the changes over time</p>
+        <div id = 'line-chart'></div>
+        <br>
+        <p class = 'want-centered'>A little writing here to guide them</p>
+        <p class = 'want-centered'>how does this look for you?</p>
+        <div class = "row" id = "line-Chart"></div>
+        <h2>Does this have any economic cost on you?</h2>
+        <p class = "want-centered">Introduce the economic costs of Climate Change</p>
+        <div class = "row">
+        <div class = "column" id = "cost-Chart"></div>
+        <div class = "column">
+          <p>Explain this chart and why it matters</p>
+        </div>
+        </div>
+        <br>
+        <br>
+        <p class = "want-centered"> Start wrapping everyting up</p>
+
+    </div><!--CLosing div for container-->
