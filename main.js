@@ -1,4 +1,4 @@
-//HIIIIII
+
 var Temperature = {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.1.1.json",
 
@@ -52,8 +52,8 @@ var US_Carbon = {
     "data": {"url": "USCarbon.csv"},
 
     "vconcat": [ {
-    "width": 700,
-    "height": 500,
+    "width": 400,
+    "height": 350,
     "mark": { "type": "line", "tooltip": true},
     "encoding": {
         "x": {"field": "date", "type": "temporal"},
@@ -69,8 +69,8 @@ var Global_Carbon = {
     "data": {"url": "co2_global.csv"},
 
     "vconcat": [ {
-    "width": 700,
-    "height": 500,
+    "width": 400,
+    "height": 400,
     "mark": { "type": "line", "tooltip": true},
     "encoding": {
         "x": {"field": "date", "type": "temporal"},
@@ -87,8 +87,8 @@ var Per_Capita = {
     "data": {"url": "per_capita.csv"},
 
     "vconcat": [ {
-    "width": 700,
-    "height": 500,
+    "width": 400,
+    "height": 350,
     "mark": { "type": "line", "tooltip": true},
     "encoding": {
         "x": {"field": "date", "type": "temporal"},
@@ -128,9 +128,6 @@ var State_Temp = {
     "description": "Lab 9",
     "title": "Average State Temperatures in the U.S",
     "data": {"url": "state_temp.csv"},
-    "transform": [
-        {"filter": {"timeUnit":"month", "field":"Date","equal":"July"}},
-     ],
 
     "params": [{
     "name": "State",
@@ -139,10 +136,16 @@ var State_Temp = {
     "bind": {"input": "select", "options": [null, "Alabama", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware", "District of Columbia", "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey", "New Mexico", "New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas", "U.S. Virgin Islands", "Utah", "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"]}
     },
 
-    { "name": "yearBorn", "value": 1895,
-    "bind": {"input": "range", "min": 1895, "max": 2021, "step": 1} },
+    { "name": "Year_Born", "value": 1895,
+    "bind": {"input": "range", "min": 1895, "max": 2021, "step": 1, } },
     
     ],
+
+    "transform": [
+        {"filter": {"timeUnit":"month", "field":"Date","equal":"June"}},
+        {"filter": {"timeUnit":"year", "field": "Date", "gte": "Year_Born"}}
+     ],
+
 
     "vconcat": [ {
     "width": 700,
@@ -156,12 +159,12 @@ var State_Temp = {
                 
                 
             }},
-        "y": {"field": "Value", "type": "quantitative"},
+        "y": {"field": "Value", "type": "quantitative","scale": {"domain": [55,90]}},
         "color": {
             "condition":{
                 "param":"State",
                 "field": "Location",
-                "scale": {"scheme": "category20b"}
+                "scale": {"scheme": "sinebow"}
                 },
             "value":"grey"
             },
@@ -178,7 +181,6 @@ var State_Temp = {
         },
     }],
 };
-
 
 var Cost = {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
