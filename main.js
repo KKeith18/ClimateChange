@@ -35,8 +35,8 @@ var Temperature = {
             }, "tooltip": true, "clip": true,
           },
         "encoding": {
-            "x": {"field": "date", "type": "temporal"},
-            "y": {"field": "temp", "type": "quantitative", "scale": {"domain": [50,56]}}
+            "x": {"field": "date", "type": "temporal", "title": "Year"},
+            "y": {"field": "temp", "type": "quantitative", "scale": {"domain": [50,56]}, "title": "Average Annual Temperature (ºF) "}
             
         }
     },
@@ -80,8 +80,8 @@ var SeaLevel = {
     {
         "mark": { "type": "area", "tooltip": true},
         "encoding": {
-            "x": {"field": "date", "type": "temporal"},
-            "y": {"field": "sealevel", "type": "quantitative"}
+            "x": {"field": "date", "type": "temporal", "title": "Year"},
+            "y": {"field": "sealevel", "type": "quantitative", "title": "Adjusted Sea Level in Inches"}
             
         }
     }]
@@ -93,7 +93,7 @@ var US_Carbon = {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.1.1.json",
 
     "description": "Lab 9",
-    "title": "US Carbon Annual Emmisions (Tons/Year)",
+    "title": "US Annual CO2 Emmisions (Tons/Year)",
     "data": {"url": "USCarbon.csv"},
 
     "vconcat": [ {
@@ -101,8 +101,8 @@ var US_Carbon = {
     "height": 350,
     "mark": { "type": "line", "tooltip": true},
     "encoding": {
-        "x": {"field": "date", "type": "temporal"},
-        "y": {"field": "carbon", "type": "quantitative", "axis": {"format": "e"}}  
+        "x": {"field": "date", "type": "temporal", "title": "Year"},
+        "y": {"field": "carbon", "type": "quantitative", "axis": {"format": "e"}, "title": "Tons of CO2 Emitted"}  
     },
     }],
 };
@@ -110,7 +110,7 @@ var Global_Carbon = {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.1.1.json",
 
     "description": "Lab 9",
-    "title": "Global Annual Carbon Emmisions (Billion Tons/Year)",
+    "title": "Global Annual CO2 Emmisions (Billion Tons/Year)",
     "data": {"url": "co2_global.csv"},
 
     "vconcat": [ {
@@ -118,8 +118,8 @@ var Global_Carbon = {
     "height": 400,
     "mark": { "type": "line", "tooltip": true},
     "encoding": {
-        "x": {"field": "date", "type": "temporal"},
-        "y": {"field": "carbon", "type": "quantitative"}  
+        "x": {"field": "date", "type": "temporal", "title": "Year"},
+        "y": {"field": "carbon", "type": "quantitative", "title": "CO2 Emitted (Billion Tons)"}  
     },
     }],
 };
@@ -136,8 +136,8 @@ var Per_Capita = {
     "height": 350,
     "mark": { "type": "line", "tooltip": true},
     "encoding": {
-        "x": {"field": "date", "type": "temporal"},
-        "y": {"field": "carbon", "type": "quantitative"}  
+        "x": {"field": "date", "type": "temporal", "title": "Year"},
+        "y": {"field": "carbon", "type": "quantitative", "title": "Per Capita CO2 Emissions"}  
     },
     }],
 };
@@ -156,8 +156,8 @@ var Emission_Type = {
     "height": 500,
     "mark": { "type": "area", "tooltip": true},
     "encoding": {
-        "x": {"field": "date", "type": "temporal","title": "Date"},
-        "y": {"aggregate": "sum", "field": {"repeat": "layer"}, "type": "quantitative", "title": "Sum of Carbon Emissions (Tons)" },
+        "x": {"field": "date", "type": "temporal","title": "Date", "title": "Year"},
+        "y": {"aggregate": "sum", "field": {"repeat": "layer"}, "type": "quantitative", "title": "CO2 Emissions (Tons)" },
         "color": {
         "datum": {"repeat": "layer"},
         "type": "nominal"
@@ -198,13 +198,13 @@ var State_Temp = {
 
     "mark": { "type": "line", "tooltip": true},
     "encoding": {
-        "x": {"field": "Date", "type": "temporal",
+        "x": {"field": "Date", "title": "Year", "type": "temporal",
             "condition":{
                 "param":"yearBorn",
                 
                 
             }},
-        "y": {"field": "Value", "type": "quantitative","scale": {"domain": [55,90]}},
+        "y": {"field": "Value", "title": "Temperature (ºF)", "type": "quantitative","scale": {"domain": [55,90]}},
         "color": {
             "condition":{
                 "param":"State",
@@ -236,8 +236,8 @@ var Cost = {
     "data": {"url": "sealevel_cost.csv"},
     "mark": {"type": "bar", "tooltip": true},
     "encoding": {
-        "x": {"field": "state", "type": "nominal", "sort": "y"},
-        "y": {"field": "cost", "type": "quantitative", "sort": "ascending"}
+        "x": {"field": "state", "type": "nominal", "sort": "y", "title": "State"},
+        "y": {"field": "cost", "type": "quantitative", "sort": "ascending", "title": "Cost (Billion USD)"}
     }
 };
 
