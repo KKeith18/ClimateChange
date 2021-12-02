@@ -7,21 +7,43 @@ var Temperature = {
     "data": {"url": "temperature.csv"},
 
     "vconcat": [ {
-    "width": 700,
+    "width": "container",
     "height": 500,
     "layer": [
     {
-        "mark": { "type": "line", "tooltip": true},
+        "mark": {
+            "type": "area",
+            "line": {
+              "color": "firebrick"
+            },
+            "color": {
+              "x1": 1,
+              "y1": 1,
+              "x2": 1,
+              "y2": 0,
+              "gradient": "linear",
+              "stops": [
+                {
+                  "offset": 0.925,
+                  "color": "white"
+                },
+                {
+                  "offset": 1,
+                  "color": "firebrick"
+                }
+              ]
+            }, "tooltip": true, "clip": true,
+          },
         "encoding": {
             "x": {"field": "date", "type": "temporal"},
-            "y": {"field": "temp", "type": "quantitative", "scale": {"domain": [50,55]}}
+            "y": {"field": "temp", "type": "quantitative", "scale": {"domain": [50,56]}}
             
         }
     },
-    {
+    /*{
         "mark": {
             "type": "line",
-            "color": "firebrick"
+            "color": "white"
         },
         "transform": [
             {
@@ -39,6 +61,29 @@ var Temperature = {
             "type": "quantitative"
             }
         }
+    }*/]
+    
+    }],
+};
+
+var SeaLevel = {
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.1.1.json",
+
+    "description": "Lab 9",
+    "title": "Annual Cumulative Sea Level Rise(Inches)",
+    "data": {"url": "sealevel.csv"},
+
+    "vconcat": [ {
+    "width": "container",
+    "height": 500,
+    "layer": [
+    {
+        "mark": { "type": "area", "tooltip": true},
+        "encoding": {
+            "x": {"field": "date", "type": "temporal"},
+            "y": {"field": "sealevel", "type": "quantitative"}
+            
+        }
     }]
     
     }],
@@ -48,7 +93,7 @@ var US_Carbon = {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.1.1.json",
 
     "description": "Lab 9",
-    "title": "US Carbon Annual Emmisions (Billion Tons/Year)",
+    "title": "US Carbon Annual Emmisions (Tons/Year)",
     "data": {"url": "USCarbon.csv"},
 
     "vconcat": [ {
@@ -130,10 +175,10 @@ var State_Temp = {
     "data": {"url": "state_temp.csv"},
 
     "params": [{
-    "name": "State",
+    "name": "State", "value": "Alabama",
     "select": {"type": "point", "fields": ["Location"]},
 
-    "bind": {"input": "select", "options": [null, "Alabama", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware", "District of Columbia", "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey", "New Mexico", "New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas", "U.S. Virgin Islands", "Utah", "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"]}
+    "bind": {"input": "select", "options": ["Alabama", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware", "District of Columbia", "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey", "New Mexico", "New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas", "U.S. Virgin Islands", "Utah", "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"]}
     },
 
     { "name": "Year_Born", "value": 1895,
@@ -202,3 +247,5 @@ vegaEmbed("#Co2-Chart", Per_Capita)
 vegaEmbed("#EmissionsBy-Chart", Emission_Type)
 vegaEmbed("#cost-Chart", Cost)
 vegaEmbed('#line-chart', State_Temp)
+vegaEmbed('#sealevel', SeaLevel)
+vegaEmbed('#temperature', Temperature)
