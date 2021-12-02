@@ -7,7 +7,7 @@ var Temperature = {
     "data": {"url": "temperature.csv"},
 
     "vconcat": [ {
-    "width": "container",
+    "width": 500,
     "height": 500,
     "layer": [
     {
@@ -74,7 +74,7 @@ var SeaLevel = {
     "data": {"url": "sealevel.csv"},
 
     "vconcat": [ {
-    "width": "container",
+    "width": 500,
     "height": 500,
     "layer": [
     {
@@ -114,7 +114,7 @@ var Global_Carbon = {
     "data": {"url": "co2_global.csv"},
 
     "vconcat": [ {
-    "width": 400,
+    "width": 600,
     "height": 400,
     "mark": { "type": "line", "tooltip": true},
     "encoding": {
