@@ -70,7 +70,7 @@ var SeaLevel = {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.1.1.json",
 
     "description": "Lab 9",
-    "title": "Annual Cumulative Sea Level Rise(Inches)",
+    "title": "Adjusted Sea Level Rise Since 1880 in Inches",
     "data": {"url": "sealevel.csv"},
 
     "vconcat": [ {
