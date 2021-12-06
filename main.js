@@ -146,7 +146,7 @@ var Emission_Type = {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.1.1.json",
 
     "description": "Lab 9",
-    "title": "US Per Capita Carbon Emmisions (Tons/Year)",
+    "title": "US Carbon Emissions by Industry",
     "data": {"url": "emission_type.csv"},
     "repeat": {
         "layer": ['oil',"coal",'gas','cement','flaring','other']
